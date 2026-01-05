@@ -1,0 +1,18 @@
+services:
+  ex1:
+    build: app
+    ports:
+      - "8089:8089"
+    command:
+      - flask
+      - run
+      - --host=0.0.0.0
+      - --port=8089
+    container_name: ex1
+  locust:
+    build:
+      context: .
+      dockerfile: Dockerfile_locust
+    ports:
+      - "8090:8089"
+    container_name: locust

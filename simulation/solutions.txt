@@ -1,0 +1,10 @@
+Your code =:= 
+[Ex 05] Command to create the image =:= docker build . -t mockex
+[Ex 05] Command to execute the container =:= docker run -p 5003:5008 --name mockexcont mockex
+[Ex 05] PORTS string of output of the container list =:= 0.0.0.0:5003->5008/tcp, [::]:5003->5008/tcp
+[Ex 05] ["Config"]["Volumes"] field =:= null
+[Ex 09] Name of endpoint with the most Locust requests =:= yui
+[Ex 09] Name of endpoint with the most failed Locust requests =:= azusa
+[Ex 09] Name of endpoint with the highest median response time =:= azusa
+[Ex 11] Total number of issues =:= 2
+[Ex 11] Number of issues with high severity =:= 1

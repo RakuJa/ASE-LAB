@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+  db_handler:
+    build: db-service
+    container_name: db_handler
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/mydatabase
+    ports:
+      - "5000:5000"
+  auth_handler:
+    build: auth-service
+    container_name: auth_handler
+    depends_on:
+      - db_handler
+    environment:
+      DB_SERVICE_URI: http://db_handler:5000/
+    ports:
+      - "5000:5001"
+volumes:
+  mongodb_data:
